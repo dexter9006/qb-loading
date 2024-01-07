@@ -11,9 +11,25 @@
         <script src="https://cdn.jsdelivr.net/npm/quasar@2.1.0/dist/quasar.umd.prod.js" defer></script>
         <script src="app.js" defer></script>
     </head>
+    
     <!-- This is where you want to replace with your audio -->
-
-    <audio autoplay loop id="audio" src="/assets/audio/noncopyright.mp3"></audio>
+    <!-- <audio autoplay loop id="audio" src="/assets/audio/noncopyright.mp3"></audio> -->
+    
+    <!-- Vitto -->
+    <audio autoplay loop id="audio" >
+        <script type="text/javascript"> 
+            var resultat = Math.floor(Math.random() * (3) +1);
+            if (resultat == 1) {
+                document.write('<source src="/assets/audio/to-the-moon-drill-remix.mp3" type="audio/mp3">');
+            }else if (resultat == 2) {
+                document.write('<source src="/assets/audio/hippie-sabotage-devil-eyes.mp3" type="audio/mp3">');
+            }else if (resultat == 3) {
+                document.write('<source src="/assets/audio/onerepublic-run.mp3" type="audio/mp3">');
+            }else {
+                document.write('<source src="/assets/audio/polo-g-martin-gina.mp3" type="audio/mp3">');
+            }
+        </script>    
+    </audio>
 
     <body>
         <div id="loading-main" style="min-height: auto;">
@@ -25,6 +41,14 @@
                 <q-carousel-slide :name="2" img-src="/assets/images/2.png"></q-carousel-slide>
                 <q-carousel-slide :name="3" img-src="/assets/images/3.png"></q-carousel-slide>
                 <q-carousel-slide :name="4" img-src="/assets/images/4.png"></q-carousel-slide>
+                <q-carousel-slide :name="5" img-src="/assets/images/5.png"></q-carousel-slide>
+                <q-carousel-slide :name="6" img-src="/assets/images/6.png"></q-carousel-slide>
+                <q-carousel-slide :name="7" img-src="/assets/images/7.png"></q-carousel-slide>
+                <q-carousel-slide :name="8" img-src="/assets/images/8.png"></q-carousel-slide>
+                <q-carousel-slide :name="9" img-src="/assets/images/9.png"></q-carousel-slide>
+                <q-carousel-slide :name="10" img-src="/assets/images/10.png"></q-carousel-slide>
+                <q-carousel-slide :name="11" img-src="/assets/images/11.png"></q-carousel-slide>
+                <q-carousel-slide :name="12" img-src="/assets/images/12.png"></q-carousel-slide>
             </q-carousel>
 
             <!-- This is where you want to replace with your video -->
@@ -76,9 +100,9 @@
                             </q-carousel-slide>
                         </q-carousel>
                         <q-space></q-space>
-                        <q-carousel animated style="width: 28vw;" infinite :autoplay="thirdap" v-model="thirdslide" transition-next="fade" transition-prev="fade" control-color="white" arrows padding class="bg-transparent text-white">
+                        <q-carousel id="keybind" animated style="width: 28vw;" infinite :autoplay="thirdap" v-model="thirdslide" transition-next="fade" transition-prev="fade" control-color="white" arrows padding class="bg-transparent text-white" >
                             <q-carousel-slide name="5" class="column no-wrap flex-center">
-                                <div style="width: 30vw; white-space: pre-wrap;" class="text-weight-regular text-center text-body1">
+                                <div style="width: 30vw; white-space: pre-wrap; padding-top: 15px!important;" class="text-weight-regular text-center text-body1">
                                     {{ KeybindTitle }}
                                 </div>
                                 <div class="q-mt-md text-center">
@@ -126,7 +150,7 @@
                                 </div>
                             </q-carousel-slide>
                             <q-carousel-slide name="6" class="column no-wrap flex-center">
-                                <div style="width: 30vw; white-space: pre-wrap;" class="text-weight-regular text-center text-body1">
+                                <div style="width: 30vw; white-space: pre-wrap; padding-top: 15px!important;" class="text-weight-regular text-center text-body1">
                                     {{ KeybindTitle }}
                                 </div>
                                 <div class="q-mt-md text-center">
@@ -184,7 +208,7 @@
 
                         <!-- This is where you want to replace with your logo -->
 
-                        <img class="cursor-none brand-logo" src="/assets/branding/qbcore.svg"></img>
+                        <img class="cursor-none brand-logo" src="/assets/branding/logo.png"></img>
                         <q-space></q-space>
                         <q-btn :ripple="false" flat size="xl" icon="downloading" color="white" @click="download = true"></q-btn>
                         <div class="loadingbar">
@@ -208,7 +232,7 @@
                     </q-card-section>
 
                     <q-card-actions align="left">
-                        <q-btn flat label="Hide details" color="detailbutton" v-close-popup></q-btn>
+                        <q-btn flat label="Réduire" color="detailbutton" v-close-popup></q-btn>
                     </q-card-actions>
                 </q-card>
             </q-dialog>
@@ -224,18 +248,21 @@
                     </q-card-section>
 
                     <q-card-section style="padding-top: 0px;">
-                        <q-toggle v-model="audioplay" size="lg" checked-icon="headset" keep-color color="togglecolor" label="Audio-track Enabled" unchecked-icon="headset_off" onclick="audiotoggle()"></q-toggle>
+                        <q-toggle v-model="audioplay" size="lg" checked-icon="headset" keep-color color="togglecolor" label="Piste audio Activée" unchecked-icon="headset_off" onclick="audiotoggle()"></q-toggle>
                         <div style="white-space: pre-wrap;" class="text-h7 text-weight-medium q-mb-md-d">
                             {{ AudioTrackDesc1 }}
                         </div>
-                        <q-toggle v-model="secondap" size="lg" checked-icon="view_carousel" keep-color color="togglecolor" label="Auto-play Enabled" unchecked-icon="image"></q-toggle>
+                        <!--
+                        <q-toggle v-model="secondap" size="lg" checked-icon="view_carousel" keep-color color="togglecolor" label="Lecture automatique Activé" unchecked-icon="image"></q-toggle>
                         <div style="white-space: pre-wrap;" class="text-h7 text-weight-medium q-mb-md-d">
                             {{ AutoPlayDesc2 }}
                         </div>
-                        <q-toggle v-model="playvideo" size="lg" checked-icon="play_arrow" keep-color color="togglecolor" label="Play-video Enabled" unchecked-icon="play_disabled" onclick="videotoggle()"></q-toggle>
+                        
+                        <q-toggle v-model="playvideo" size="lg" checked-icon="play_arrow" keep-color color="togglecolor" label="Flux vidéo Acctivé" unchecked-icon="play_disabled" onclick="videotoggle()"></q-toggle>
                         <div style="white-space: pre-wrap;" class="text-h7 text-weight-medium q-mb-md-d">
                             {{ PlayVideoDesc3 }}
                         </div>
+                        -->
                     </q-card-section>
                 </q-card>
             </q-dialog>
