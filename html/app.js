@@ -5,38 +5,38 @@ const { ref } = Vue
 const load = Vue.createApp({
   setup () {
     return {
-      CarouselText1: 'You can add/remove items, vehicles, jobs & gangs through the shared folder.',
-      CarouselSubText1: 'Photo captured by: Markyoo#8068',
-      CarouselText2: 'Adding additional player data can be achieved by modifying the qb-core player.lua file.',
-      CarouselSubText2: 'Photo captured by: ihyajb#9723',
-      CarouselText3: 'All server-specific adjustments can be made in the config.lua files throughout the build.',
-      CarouselSubText3: 'Photo captured by: FLAPZ[INACTIV]#9925',
-      CarouselText4: 'For additional support please join our community at discord.gg/qbcore',
-      CarouselSubText4: 'Photo captured by: Robinerino#1312',
+      CarouselText1: 'Arrivée à l\'Aéroport Imminante',
+      CarouselSubText1: 'Bienvenue sur Pain ! Nous sommes ravis de t\'accueillir dans notre communauté immersive et pleine d\'aventures. Prépare-toi à plonger dans un monde unique où tes choix façonnent ton destin, peut être même celui des autres ! Amuse-toi bien et n\'hésite pas à contacter notre équipe si tu as des questions. Bon jeu !',
+      CarouselText2: 'Juste avant d\'arriver ...',
+      CarouselSubText2: 'Nous te faisons savoir que ton ancien permis est valide sur Pain. Fait attention à pas le perdre !',
+      CarouselText3: 'Arrivée à l\'Aéroport Imminante',
+      CarouselSubText3: 'Bienvenue sur Pain ! Nous sommes ravis de t\'accueillir dans notre communauté immersive et pleine d\'aventures. Prépare-toi à plonger dans un monde unique où tes choix façonnent ton destin, peut être même celui des autres ! Amuse-toi bien et n\'hésite pas à contacter notre équipe si tu as des questions. Bon jeu !',
+      CarouselText4: 'Une dernière chose ...',
+      CarouselSubText4: 'Bonne chance ... qui sait ce qui peut arriver !',
 
-      DownloadTitle: 'Downloading QBCore Server',
-      DownloadDesc: "Hold tight while we begin downloading all the resources/assets required to play on QBCore Server. \n\nAfter download has been finished successfully, you'll be placed into the server and this screen will disappear. Please don't leave or turn off your PC. ",
+      DownloadTitle: 'Téléchargement de Pain Island',
+      DownloadDesc: "Tenez-vous bien pendant que nous commençons à télécharger toutes les ressources nécessaires pour jouer sur Pain Island. \n\nUne fois le téléchargement terminé avec succès, vous serez placé sur le serveur et cet écran disparaîtra. Veuillez ne pas quitter ou éteindre votre PC. ",
 
-      SettingsTitle: 'Settings',
-      AudioTrackDesc1: 'When disabled the current audio-track playing will be stopped.',
-      AutoPlayDesc2: 'When disabled carousel images will stop cycling and remain on the last shown.',
-      PlayVideoDesc3: 'When disabled video will stop playing and remain paused.',
+      SettingsTitle: 'Réglages',
+      AudioTrackDesc1: 'Lorsqu\'il est désactivé, la lecture de la piste audio en cours sera arrêtée.',
+      AutoPlayDesc2: 'Lorsqu\'elles sont désactivées, les images du carrousel s\'arrêtent de défiler et restent sur la dernière affichée.',
+      PlayVideoDesc3: 'Lorsqu\'il est désactivé, la lecture de la video en cours sera arrêtée.',
 
-      KeybindTitle: 'Default Keybinds',
-      Keybind1: 'Open Inventory',
-      Keybind2: 'Cycle Proximity',
-      Keybind3: 'Open Phone',
-      Keybind4: 'Toggle Seat Belt',
-      Keybind5: 'Open Target Menu',
-      Keybind6: 'Radial Menu',
-      Keybind7: 'Open Hud Menu',
-      Keybind8: 'Talk Over Radio',
-      Keybind9: 'Open Scoreboard',
-      Keybind10: 'Vehicle Locks',
-      Keybind11: 'Toggle Engine',
-      Keybind12: 'Pointer Emote',
+      KeybindTitle: 'Raccourcis Clavier par défaut',
+      Keybind1: 'Inventaire',
+      Keybind2: 'Portée de la voix',
+      Keybind3: 'Téléphone',
+      Keybind4: 'Ceinture de sécurité',
+      Keybind5: 'Menu Target',
+      Keybind6: 'Menu Radial',
+      Keybind7: 'Menu HUD',
+      Keybind8: 'Radio',
+      Keybind9: 'Scoreboard',
+      Keybind10: 'Verrouillé véhicule',
+      Keybind11: 'Moteur ON/OFF',
+      Keybind12: 'Pointer du doigt',
       Keybind13: 'Keybind Slots',
-      Keybind14: 'Hands Up Emote',
+      Keybind14: 'Lever les bras',
       Keybind15: 'Use Item Slots',
       Keybind16: 'Cruise Control',
 
@@ -45,10 +45,10 @@ const load = Vue.createApp({
       thirdap: ref(true),
       firstslide: ref(1),
       secondslide: ref('1'),
-      thirdslide: ref('5'),
+      thirdslide: ref('13'),   // last image +1
       audioplay: ref(true),
       playvideo: ref(true),
-      download: ref(true),
+      download: ref(false),
       settings: ref(false),
     }
   }
@@ -58,7 +58,7 @@ load.use(Quasar, { config: {} })
 load.mount('#loading-main')
 
 var audio = document.getElementById("audio");
-audio.volume = 0.05;
+audio.volume = 0.1;
 
 function audiotoggle() {
     var audio = document.getElementById("audio");
